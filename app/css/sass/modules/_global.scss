@@ -1,0 +1,17 @@
+/* ==|====================
+   Module/Global
+   ======================= */
+
+/*===titles===*/
+.title-main{
+    position: relative;
+    text-align: center;
+    font-family: $font1;
+    font-weight: bold;
+    color: $color2;
+    @include ptr(padding,0 0 50);
+    @include fluidFontSize(22px,40px,480px,1680px,44px,28px);
+    h1,h2,h3,h4{
+        font-weight: bold;
+    }
+}

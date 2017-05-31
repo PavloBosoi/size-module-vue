@@ -1,0 +1,140 @@
+/* ==|====================
+   Module/Sections
+   ======================= */
+
+/*===Size-price===*/
+.size-form{
+    background-color: $color1;
+    @include ptr(width,600);
+    @include ptr(padding,20);
+    margin: 50px auto;
+    margin: 5rem auto;
+}
+
+/*===Size-product===*/
+.size-product{
+    @include ptr(margin,0 0 20);
+    label{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        cursor: default;
+        span{
+            @include ptr(margin,0 20 0 0);
+        }
+    }
+}
+
+/*===Size-standart===*/
+.size-standart-item{
+    display: flex;
+    justify-content: space-between;
+    background-color: #F9F9F9;
+    @include ptr(padding,10);
+    border-bottom: 1px solid $color1;
+    label{
+        display: flex;
+        width: 30%;
+        align-items: center;
+    }
+    &:first-child{
+        border-top: 1px solid $color1;
+    }
+}
+.size-item-price{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+.size-item-price__old{
+    text-decoration: line-through;
+    color: $color3;
+}
+.size-item-price__new{
+    color: $color2;
+}
+
+/*===Size-custom===*/
+.size-custom{
+    @include ptr(margin,20 0 0 0);
+    @include ptr(padding,0 10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.size-custom-select{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    span{
+        @include ptr(margin,0 20);
+    }
+}
+
+
+/*===Size-result===*/
+.size-result{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include ptr(margin,20 0 0);
+    @include ptr(padding,0 10);
+    font-weight: bold;
+    .size-item-price__old{
+        @include fluidFontSize(14px,18px,480px,1680px,24px,16px);
+    }
+    .size-item-price__new{
+        @include fluidFontSize(28px,36px,480px,1680px,44px,32px);
+    }
+}
+.size-btn{
+    @include fluidFontSize(18px,22px,480px,1680px,34px,24px);
+    @include ptr(width,230);
+    @include ptr(height,50);
+    background-color: $color2;
+    @include ptr(border-radius,5);
+    color: #fff;
+    text-transform: uppercase;
+    transition: $linear;
+    cursor: pointer;
+    &:hover{
+        background-color: #434343;
+    }
+}
+
+
+
+.jq-radio {
+    border: 2px solid $color3;
+    border-radius: 50%;
+    background: #fff;
+}
+.jq-radio.checked{
+    border: 2px solid $color2;
+    .jq-radio__div {
+        border-radius: 50%;
+        background: $color2;
+        box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.7);
+    }
+}
+.jq-selectbox .jq-selectbox__trigger .jq-selectbox__trigger-arrow{
+    top: 0;
+}
+.jq-selectbox li.sel,
+.jq-selectbox li.selected,
+.jq-selectbox li:hover{
+    background-color: $color3;
+    color: #fff;
+}
+.jq-selectbox.focused .jq-selectbox__select {
+    border-color: $color3;
+}
+
+
+
+
+.options{
+    width: 200px;
+    border: 1px solid #333;
+    background-color: green;
+}
