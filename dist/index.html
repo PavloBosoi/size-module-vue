@@ -33,8 +33,6 @@
 
 			<div id="size-module" class="size-module">
 
-				<pre>{{ value }}</pre>
-
 				<calc></calc>
 
 			</div>
@@ -95,7 +93,15 @@
 							</div>
 
 							<multiselect
-									v-model="value"
+									v-model="valueL"
+									:options="range(minSize,maxSize)"
+									:multiple="false"
+									:searchable="false"
+									:custom-label="customLabel"
+							>
+							</multiselect>
+							<multiselect
+									v-model="valueR"
 									:options="range(minSize,maxSize)"
 									:multiple="false"
 									:searchable="false"

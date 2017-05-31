@@ -101,7 +101,8 @@ $(function () {
                         newPrice: '$36.71'
                     }
                 ],
-                value: '',
+                valueL: this.minSize,
+                valueR: this.maxSize,
                 options: ''
             }
         },
@@ -161,7 +162,12 @@ $(function () {
 
 
     var sizeModule = new Vue({
-        el: '#size-module'
+        el: '#size-module',
+        data: {
+            valueL: '',
+            valueR: '',
+            options: ''
+        }
     });
 
     //sizeModule.initialize();
