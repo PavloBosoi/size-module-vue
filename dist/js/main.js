@@ -102,26 +102,14 @@ $(function () {
                     }
                 ],
                 valueL: this.minSize,
-                valueR: this.maxSize,
+                valueR: this.minSize,
                 options: ''
             }
         },
         methods: {
-            initialize: function(){
-                if(this.selectedLeftPrice === 0){
-                    this.selectedLeftPrice = this.minSize;
-                }
-                if(this.selectedRightPrice === 0){
-                    this.selectedRightPrice = this.minSize;
-                }
-                for(var i = 0; i < this.standartData.length; i++){
-                    if(i == this.standartChecked){
-                        this.priceOld = this.standartData[i].oldPrice;
-                        this.priceNew = this.standartData[i].newPrice;
-                    }
-                }
-            },
             range: function(min,max){
+                this.valueL = min;
+                this.valueR = min;
                 var array = [],
                     j = 0;
                 for(var i = min; i <= max; i++){
@@ -155,9 +143,31 @@ $(function () {
             },
             customLabel: function(option){
                 return option;
+            },
+            onChange: function(){
+                this.customSelected = true;
+                for(var i = 0; i < this.customData.length; i++){
+                    if(this.valueL == this.customData[i].sizeH && this.valueR == this.customData[i].sizeW){
+                        this.priceOld = this.customData[i].oldPrice;
+                        this.priceNew = this.customData[i].newPrice;
+                    }
+                }
             }
-        }
-
+        },
+        mounted: function(){
+                /*if(this.selectedLeftPrice === 0){
+                    this.selectedLeftPrice = this.minSize;
+                }
+                if(this.selectedRightPrice === 0){
+                    this.selectedRightPrice = this.minSize;
+                }*/
+                for(var i = 0; i < this.standartData.length; i++){
+                    if(i == this.standartChecked){
+                        this.priceOld = this.standartData[i].oldPrice;
+                        this.priceNew = this.standartData[i].newPrice;
+                    }
+                }
+            },
     });
 
 
