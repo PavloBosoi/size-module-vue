@@ -17,6 +17,7 @@ $(function () {
                 selectedLeftPrice: 0,
                 selectedRightPrice: 0,
                 customSelected: false,
+                uploader: false,
                 standartChecked: 0,
                 standartData: [
                     {
@@ -101,15 +102,33 @@ $(function () {
                         newPrice: '$36.71'
                     }
                 ],
+                productData: [
+                    {
+                        product: 'Canvas Prints'
+                    },
+                    {
+                        product: 'Peel & Stick'
+                    },
+                    {
+                        product: 'Photo Boards'
+                    },
+                    {
+                        product: 'Metal Prints'
+                    },
+                    {
+                        product: 'Acrylic Prints'
+                    },
+                    {
+                        product: 'Canvas Banner'
+                    }
+                ],
+                valueProduct: '',
                 valueL: this.minSize,
-                valueR: this.minSize,
-                options: ''
+                valueR: this.minSize
             }
         },
         methods: {
             range: function(min,max){
-                this.valueL = min;
-                this.valueR = min;
                 var array = [],
                     j = 0;
                 for(var i = min; i <= max; i++){
@@ -152,33 +171,62 @@ $(function () {
                         this.priceNew = this.customData[i].newPrice;
                     }
                 }
+            },
+            changeProduct: function(){
+                location.href = this.valueProduct;
+            },
+            showUploader: function(event){
+                event.preventDefault();
+                this.uploader = true;
+                this.$emit('show-uploader',this.uploader);
             }
         },
         mounted: function(){
-                /*if(this.selectedLeftPrice === 0){
-                    this.selectedLeftPrice = this.minSize;
-                }
-                if(this.selectedRightPrice === 0){
-                    this.selectedRightPrice = this.minSize;
-                }*/
+
+            //select with product value
+            this.valueProduct = this.productData[0];
+
+            //double select value
+            this.valueL = this.minSize;
+            this.valueR = this.minSize;
+
                 for(var i = 0; i < this.standartData.length; i++){
                     if(i == this.standartChecked){
                         this.priceOld = this.standartData[i].oldPrice;
                         this.priceNew = this.standartData[i].newPrice;
                     }
                 }
-            },
+            }
+    });
+
+    var imageUploader = Vue.component('uploader', {
+        template: '#uploader-template',
+        components: {
+            Multiselect: window.VueMultiselect.default
+        },
+        data: function() {
+            return{
+
+            }
+        },
+        methods:{
+
+        }
     });
 
 
     var sizeModule = new Vue({
         el: '#size-module',
         data: {
-            valueL: '',
-            valueR: '',
-            options: ''
+            uploader: false
+        },
+        methods: {
+            showComponent: function(show){
+                this.uploader = show;
+            }
         }
     });
+
 
     //sizeModule.initialize();
 

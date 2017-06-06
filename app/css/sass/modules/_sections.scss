@@ -142,13 +142,13 @@
     transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .fade-out-leave-active{
-    opacity: 1;
+    opacity: 0;
 }
 
 .fade-out-enter-active, .fade-out-leave-active {
     transition: all 1s;
 }
 .fade-out-enter, .fade-out-leave-to /* .list-leave-active для <2.1.8 */ {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(30px);
 }
